@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS=-I.
-TARGET=../rectangle.lib
+CFLAGS=-I. -fPIC
+TARGET=../s1ap.lib
 SOURCES = $(wildcard *.c)
 OBJECTS = $(SOURCES:.c=.o)
 

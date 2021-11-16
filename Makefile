@@ -1,6 +1,7 @@
+TARGET=decode.go
 
-all:
-	go build main.go
+all:lib
+	go build $(TARGET)
 
 lib:
 	$(MAKE) -C asn1c all 
