@@ -3,7 +3,7 @@ package main
 /*
 #cgo CFLAGS: -I. -I./asn1c
 #cgo LDFLAGS: -L. -ls1ap
-#include <stdio.h>
+
 #include <S1AP-PDU.h>
 
 void decode(void* buffer, int length) {
@@ -24,13 +24,13 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Print("Enter filename\n")
+		fmt.Print("Usage: decode [filename]\n")
 		os.Exit(0)
 	}
 	filename := os.Args[1]
-	content, err := ioutil.ReadFile(filename) // the file is inside the local directory
+	content, err := ioutil.ReadFile(filename)
 	if err != nil {
-		fmt.Println("File read error")
+		fmt.Println("File read error:", err)
 	}
 	// call decode
 	C.decode(unsafe.Pointer(&content[0]), C.int(len(content)))
