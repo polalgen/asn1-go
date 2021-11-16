@@ -7,9 +7,9 @@ package main
 #include <S1AP-PDU.h>
 
 void decode(void* buffer, int length) {
-    S1AP_PDU_t *pdu = 0;                       // Type to decode
+	S1AP_PDU_t *pdu = 0;                       // Type to decode
 	pdu = calloc(1, sizeof(S1AP_PDU_t));	   // allocate struct for decode
-    asn_dec_rval_t rval;                       // Decoder return value
+	asn_dec_rval_t rval;                       // Decoder return value
 	rval = aper_decode_complete(0, &asn_DEF_S1AP_PDU, (void **)&pdu, buffer, length);
 	xer_fprint(stdout, &asn_DEF_S1AP_PDU, pdu);
 }
